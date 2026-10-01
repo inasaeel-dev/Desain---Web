@@ -9,22 +9,21 @@ function initNavToggle() {
     });
 }
 
-// ===== Konfirmasi hapus =====
-// Tombol Hapus kini berada di dalam <form class="form-hapus" method="post">
-// yang benar-benar mengirim request DELETE ke server (buku/hapus.php,
-// anggota/hapus.php). Konfirmasi dilakukan pada event "submit" agar bisa
-// dibatalkan (preventDefault) sebelum request terkirim.
+// Tombol hapus kini berada di dalam form class
+// yang benar-benar mengirim request delete ke server (buku/hapus.php)
+// anggota/hapus.php. konfirmasi dilakukan pada event submit agar bisa di batalkan
+// sebelum request terkirim
 function initHapusConfirm() {
     document.addEventListener("submit", function (e) {
         const form = e.target;
-        if (!form.classList.contains("form-hapus")) return;
 
-        const row = form.closest("tr");
+        if(!form.classList.contains("form-hapus")) return;
+        const row = form.closet("tr");
         const nama = row ? row.querySelector("td")?.textContent : "data ini";
-        const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
-        if (!yakin) {
-            e.preventDefault();
-        }
+            const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
+            if (!yakin){
+                e.preventDefault();
+            }
     });
 }
 
