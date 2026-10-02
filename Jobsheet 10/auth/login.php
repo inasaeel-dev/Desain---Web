@@ -1,37 +1,38 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION['user_id'])) {
     header('Location: ../index.php');
     exit;
 }
+
 $page_title = "Login";
 include __DIR__ . '/../includes/header.php';
+
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
 ?>
+        <section>
+            <h2>Login Petugas</h2>
 
-<main>
-  <section class="login-card">
-    <h2>Login Petugas</h2>
+            <?php if ($flash): ?>
+                <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
+            <?php endif; ?>
 
-    <form action="" method="POST">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
-      </div>
-
-      <button type="submit">Masuk</button>
-    </form>
-
-    <p style="margin-top: 1.2rem;">
-      Belum punya akun? <a href="register.php">Daftar di sini</a>
-    </p>
-  </section>
-</main>
-
+            <form method="post" action="process_login.php">
+                <p>
+                    <label for="username">Username</label><br>
+                    <input type="text" id="username" name="username" required>
+                </p>
+                <p>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password" required>
+                </p>
+                <p>
+                    <button type="submit">Masuk</button>
+                </p>
+            </form>
+            <p>Belum punya akun? <a href="register.php">Daftar di sini</a></p>
+        </section>
 <?php include __DIR__ . '/../includes/footer.php'; ?>
