@@ -1,29 +1,37 @@
-<main class="container">
-  <div class="card-login">
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION['user_id'])) {
+    header('Location: ../index.php');
+    exit;
+}
+$page_title = "Login";
+include __DIR__ . '/../includes/header.php';
+?>
+
+<main>
+  <section class="login-card">
     <h2>Login Petugas</h2>
-    
-    <?php if (isset($error)): ?>
-      <div class="alert alert-danger"><?= $error; ?></div>
-    <?php endif; ?>
 
     <form action="" method="POST">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" class="form-control" required>
+        <input type="text" name="username" id="username" required>
       </div>
 
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" class="form-control" required>
+        <input type="password" name="password" id="password" required>
       </div>
 
-      <button type="submit" class="btn">Masuk</button>
+      <button type="submit">Masuk</button>
     </form>
 
-    <p class="register-text">
+    <p style="margin-top: 1.2rem;">
       Belum punya akun? <a href="register.php">Daftar di sini</a>
     </p>
-  </div>
+  </section>
 </main>
 
 <?php include __DIR__ . '/../includes/footer.php'; ?>
