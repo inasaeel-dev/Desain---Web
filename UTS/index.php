@@ -1,6 +1,6 @@
 <?php
-// PHP Backend Engine: Meng-generate token keamanan unik
-$server_seed = "UTS_PEMROGRAMAN_WEB_2026";
+// PHP Backend Engine: Meng-generate Token Akses Unik
+$server_seed = "UTS_HITUNG_DISKON_2026";
 $security_token = md5(time() . $server_seed);
 ?>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ $security_token = md5(time() . $server_seed);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Penjumlahan & Paritas UTS</title>
+    <title>Kalkulator Diskon & Jam UTS</title>
     
     <!-- KETERKAITAN CSS -->
     <link rel="stylesheet" href="style.css">
@@ -16,22 +16,22 @@ $security_token = md5(time() . $server_seed);
 <body>
 
     <div class="card">
-        <h3>Aplikasi Penjumlahan</h3>
+        <h3>Form Hitung Diskon</h3>
 
-        <!-- KETERKAITAN PHP: Token disimpan di input hidden HTML -->
+        <!-- KETERKAITAN PHP: Token disimpan pada tag hidden HTML -->
         <input type="hidden" id="php-token" value="<?php echo $security_token; ?>">
 
         <!-- KETERKAITAN HTML: Form Input -->
-        <form id="calc-form">
-            <div class="input-group">
-                <label for="num1">Angka Pertama:</label>
-                <input type="text" id="num1" placeholder="Masukkan angka..." required>
+        <form id="discount-form">
+            <div class="form-group">
+                <label for="price">Harga Barang (Rp):</label>
+                <input type="text" id="price" placeholder="*******" required>
             </div>
-            <div class="input-group">
-                <label for="num2">Angka Kedua:</label>
-                <input type="text" id="num2" placeholder="Masukkan angka..." required>
+            <div class="form-group">
+                <label for="hour">Jam Transaksi:</label>
+                <input type="text" id="hour" required>
             </div>
-            <button type="submit">Hitung Hasil</button>
+            <button type="submit">Hitung Total</button>
         </form>
 
         <div id="result-box"></div>

@@ -1,79 +1,85 @@
 :root {
-  --bg-color: #f0f2f5;
-  --primary-color: #3498db;
-  --app-integrity-key: "CSS_LOADED_OK"; /* Kunci verifikasi untuk JavaScript */
+  --bg-color: #f4f6f9;
+  --primary-color: #2c3e50;
+  --accent-color: #9785cd;
+  --app-integrity-key: "CSS_VALIDATED_OK"; /* Kunci verifikasi JavaScript */
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-color);
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .card {
-  background: white;
+  background: #ffffff;
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 360px;
 }
 
 h3 {
   margin-top: 0;
   text-align: center;
-  color: #333;
+  color: var(--primary-color);
 }
 
-.input-group {
-  margin-bottom: 12px;
+.form-group {
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   font-size: 14px;
+  font-weight: bold;
+  color: #333;
 }
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 9px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 button {
   width: 100%;
-  padding: 10px;
-  background-color: var(--primary-color);
+  padding: 11px;
+  background-color: var(--accent-color);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 15px;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #514c72;
 }
 
 .box-result {
   margin-top: 15px;
-  padding: 10px;
-  border-radius: 4px;
-  background: #eef9f1;
+  padding: 12px;
+  border-radius: 5px;
+  background: #e8f8f5;
   border: 1px solid #2ecc71;
   color: #27ae60;
+  font-size: 14px;
 }
 
 .box-error {
   margin-top: 15px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 5px;
   background: #fde8e8;
   border: 1px solid #e74c3c;
   color: #c0392b;
   font-weight: bold;
+  font-size: 14px;
 }
